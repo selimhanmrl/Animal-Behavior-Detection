@@ -23,11 +23,11 @@ tf.keras.backend.set_session(session)
 from tkinter import *
 from tkinter.filedialog import askopenfile
 from tkVideoPlayer import TkinterVideo
-import a
+import process
 import time
 
-config_path = 'Bitirme 2022/GTU-Mar/Gtu-Mar-Selimhan Meral-2022-05-01/config.yaml'
-output_path = r'C:\Users\alpag\Desktop\Bitirme 2022\demo'
+config_path = ''
+output_path = r''
 
 
 behavior = np.array([
