@@ -8,14 +8,13 @@ import glob
 import matplotlib.pyplot as plt
 
 
-config_path = r'C:\Users\alpag\Desktop\Bitirme 2022\Bitirme 2022\GTU-Mar\Gtu-Mar-Selimhan Meral-2022-05-01\config.yaml'
-output_path = r'C:\Users\alpag\Desktop\Bitirme 2022\demo'
-#video_path = r'C:\Users\tunah\Desktop\yavuz-data\GTU-Mar\Gtu-Mar-Selimhan Meral-2022-05-01\videos\2022-04-29 12-29-24.mp4'
+config_path = r''
+output_path = r''
 
-csv_dest_path = "C:/Users/tunah/Desktop/csv"
+csv_dest_path = ""
 
 
-csv_path = '2022-04-29 12-29-24DLC_resnet50_Gtu-MarMay1shuffle1_500000.csv'
+csv_path = ''
 
 axis1 = [
     "head_x","head_y",
@@ -71,9 +70,6 @@ def visit(path):
     #print(videos)
     return videos
 
-""" a = visit("C:/Users/tunah/Desktop/standing")
-for i in range(len(a)):
-    analyze_video(config_path,a[i]) """
 
 
 def rename(path):
@@ -97,9 +93,7 @@ def rename(path):
                     new_path = os.path.join(root, new_dest)
                 os.rename(old_path,new_path)
                 
-    #print(videos)
 
-#rename('C:/Users/tunah/Desktop/csv')
 
 def add_label(csv_path, dest_path, label):
     df = pd.read_csv(csv_path)
@@ -136,9 +130,7 @@ def edit(path):
                 os.remove(path)
         
                 
-    #print(videos)
 
-#edit('C:/Users/tunah/Desktop/csv')
 
 def merge_(path):
     all_files = glob.glob(os.path.join(path, "*.csv"))
@@ -150,16 +142,12 @@ def merge_(path):
 
     df_merged.to_csv("merge.csv")
 
-#merge_('C:/Users/tunah/Desktop/csv')
 
 
 def counts(csv_path):
     df = pd.read_csv(csv_path)
     return len(df)
 
-""" df = pd.read_csv('merge.csv')
-df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
-print(df.columns) """\
 
 
 def create_dataset(path):
@@ -180,7 +168,6 @@ def create_dataset(path):
  
                 counter +=1
 
-#create_dataset('C:/Users/tunah/Desktop/csv')
 
 def split_df(path):
     keypoints, labels = [],[]
@@ -202,7 +189,6 @@ def split_df(path):
     
                 counter +=1
 
-#split_df('C:/Users/tunah/Desktop/csv')
 
 
 def last_data(path):
@@ -233,16 +219,6 @@ def last_data(path):
             
     return np.array(keypoints),np.array(labels)
                 
-""" keypoints , labels = last_data('C:/Users/tunah/Desktop/csv')
-print(np.array(keypoints).shape ,np.array(labels).shape)
-
-from sklearn.model_selection import train_test_split
-from tensorflow.keras.utils import to_categorical
-
-labels = to_categorical(labels).astype(int)
-
-X_train, X_test, y_train, y_test = train_test_split(keypoints, labels, test_size=0.05) """
-
 
 
 
@@ -351,11 +327,9 @@ def demo(df,models):
 
     print(behavior[np.argmax(pre[0])])
 
-#demo(pd.read_csv('C:/Users/tunah/Desktop/csv/w21-574.csv'),mdl)
 
 import time
 def demov1(video_path):
-    #video_path = 'standing/s2.mp4'
     analyze_video(config_path,video_path)
     rename(output_path)
     rename(output_path)
@@ -383,5 +357,4 @@ def pred(mdl):
                     print(behavior[np.argmax(pre[0])])
             os.remove(os.path.join(root, file))
 
-#demov1()
-#pred(mdl)
+
