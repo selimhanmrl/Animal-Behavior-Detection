@@ -1,5 +1,7 @@
 # Animal-Behavior-Detection
 
+I created behaviour detetcion model for animals. This model can detect 3 different behaviors as standing, grooming and walking.
+
 For running code you need created DeeplabCut model.
 
 Because of ethical reasons i could not share my model for testing.
